@@ -58,7 +58,7 @@ const VAL_CONSUMER_API_SECRET         = '{(3) の Twitter Developer Portal で�
 
 セキュリティー関連の警告ダイアログが出ますので、許可します。
 
-(9) ログに吐き出された URL をブラウザで開き、Twitter 連携させます
+(9) ログに吐き出された URL をブラウザで開き、Twitter との連携を許可します
 
 以上で Twitter API を呼ぶ準備ができます。
 
