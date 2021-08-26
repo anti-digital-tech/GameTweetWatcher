@@ -13,27 +13,33 @@ Developer Account の取得、アプリの登録、OAUth1 ライブラリの組�
 * https://qiita.com/anti-digital/items/f7d6de42974066ad1f25
 
 (1) Google の My Drive の任意の場所に GAS を作成し、下記のコードを貼り付けます
+
 https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
+
 ([clasp](https://github.com/google/clasp) を使う場合には、[TypeScript 版](https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src/Code.ts) を使用するのが良いと思います)
 
 (2) 上記スクリプトの [OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) を追加します
-1CXDCY5sqT9ph64fFwSzVtXnbjpSfWdRymafDrtIZ7Z_hwysTY7IIhi7s
 
 (3) Twitter Developer Account を取得し、アプリを登録し、App Key と Secret 値を入手します
+
 [Twitter Developer Platform](https://developer.twitter.com/en/apply-for-access) から Twitter Developer Account を取得した後、
 [Twitter Developer Portal](https://developer.twitter.com/en/portal) でアプリを登録し、App Key と Secret 値を入手します。
 
 (4) (1) のスクリプトのコールバックを (3) で登録したアプリの Callback URLs として登録します
+
 スクリプトのコールバックは、スクリプトの ID から、次のように決まります。
 `https://script.google.com/macros/d/{Script ID}/usercallback`
 
 (5) 下記 Google スプレッドシートをコピーして、Google の My Drive の任意の場所に置きます
+
 https://docs.google.com/spreadsheets/d/1xiovn8szDPkuN6_QCCQQ0tACCwUMLMFwfZM_Y9cka2E/edit?usp=sharing
 
 (6) Google の My Drive の任意の場所に、メディア保存用、バックアップ用、履歴保存用のフォルダを 3 つそれぞれ作ります
+
 これら、それぞれの ID を GAS で使用するので控えておきます。
 
 (7) (1) のスクリプトに、各 Key, ID を記述します
+
 ```JavaScript
 // ID of the Target Google Spreadsheet (Book)
 const VAL_ID_TARGET_BOOK              = '{(5) の Google スプレッドシートの ID}';
