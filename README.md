@@ -1,13 +1,16 @@
 # GameTweetWatcher
 
 **NOTE: This script was created for internal investigation project only, and so it won't make sense for anyone who don't relate to the project.**
+
 **注意: このスクリプトは、社内の調査プロジェクトのためだけに作られたものなので、プロジェクトに関係のない人には機能しません。**
 
 # 使用方法
 
 Developer Account の取得、アプリの登録、OAUth1 ライブラリの組み込み等の詳細な手順は Qiita の下記の記事が参考になるかと思います。
-https://qiita.com/anti-digital/items/5f085d8d7361785f7def
-https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38
+
+* https://qiita.com/anti-digital/items/5f085d8d7361785f7def
+* https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38
+* https://qiita.com/anti-digital/items/f7d6de42974066ad1f25
 
 (1) Google の My Drive の任意の場所に GAS を作成し、下記のコードを貼り付けます
 https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
@@ -44,3 +47,15 @@ const VAL_ID_GDRIVE_FOLDER_HISTORY    = '{(6) の履歴保存用の Google ド�
 const VAL_CONSUMER_API_KEY            = '{(3) の Twitter Developer Portal で取得した API Key}';
 const VAL_CONSUMER_API_SECRET         = '{(3) の Twitter Developer Portal で取得した API Secret Key}';
 ```
+
+(8) (1) のスクリプトの **getOAuthURL()** を実行します
+
+セキュリティー関連の警告ダイアログが出ますので、許可します。
+
+(9) ログに吐き出された URL をブラウザで開き、Twitter 連携させます
+
+以上で Twitter API を呼ぶ準備ができます。
+
+(10) **main()** 関数を定期的に実行するようにスケジュールする
+
+
