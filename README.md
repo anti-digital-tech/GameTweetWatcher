@@ -12,71 +12,72 @@ Developer Account の取得、アプリの登録、OAUth1 ライブラリの組�
 * [Twitter API と GAS を用いた情報収集 - 2. GAS+OAuth 編](https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38)
 * [Twitter API と GAS を用いた情報収集 - 3. Google スプレッドシートとの連携 編](https://qiita.com/anti-digital/items/f7d6de42974066ad1f25)
 
-**(1) Google の My Drive の任意の場所に GAS を作成し、下記のコードを貼り付けます**
+## 1. Google の My Drive の任意の場所に GAS を作成し、下記のコードを貼り付けます
 
 https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
 
 ([clasp](https://github.com/google/clasp) を使う場合には、[TypeScript 版](https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src/Code.ts) を使用するのが良いと思います)
 
-**(2) 上記スクリプトの [OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) を追加します**
+## 2. 上記スクリプトの [OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) を追加します
 
 具体的な手順は、次のようになります。
 
-(2-1) スクリプトエディタ上で、左側にある "Libraries" の横にある "+" を押します
+2.(a) スクリプトエディタ上で、左側にある "Libraries" の横にある "+" を押します
 
-(2-2) "Add a Library" ダイアログが表示されるので、そこの Script ID に 次の ID を入力します
+2.(b) "Add a Library" ダイアログが表示されるので、そこの Script ID に 次の ID を入力します
 
 `1CXDCY5sqT9ph64fFwSzVtXnbjpSfWdRymafDrtIZ7Z_hwysTY7IIhi7s`
 
-(2-3) "Look up" します
+2.(c) "Look up" します
 
-(2-4) "Add" ボタンを押して追加します
+2.(d) "Add" ボタンを押して追加します
 
 より詳細な手順は、Qiita の記事 : [Twitter API と GAS を用いた情報収集 - 2. GAS+OAuth 編](https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38) または、[OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) の "Set up" を参照してください。
 
-**(3) Twitter Developer Account を取得し、アプリを登録し、App Key と Secret 値を入手します**
+## 3. Twitter Developer Account を取得し、アプリを登録し、App Key と Secret 値を入手します
 
 [Twitter Developer Platform](https://developer.twitter.com/en/apply-for-access) から Twitter Developer Account を取得した後、
 [Twitter Developer Portal](https://developer.twitter.com/en/portal) でアプリを登録し、App Key と Secret 値を入手します。
 
-**(4) (1) のスクリプトのコールバックを (3) で登録したアプリの Callback URLs として登録します**
+## 4. 1. のスクリプトのコールバックを 3. で登録したアプリの Callback URLs として登録します**
 
 スクリプトのコールバックは、スクリプトの ID から、次のように決まります。
 
 `https://script.google.com/macros/d/{Script ID}/usercallback`
 
-**(5) 下記 Google スプレッドシートをコピーして、Google の My Drive の任意の場所に置きます**
+## 5. 下記 Google スプレッドシートをコピーして、Google の My Drive の任意の場所に置きます
 
 https://docs.google.com/spreadsheets/d/1xiovn8szDPkuN6_QCCQQ0tACCwUMLMFwfZM_Y9cka2E/edit?usp=sharing
 
-**(6) Google の My Drive の任意の場所に、メディア保存用、バックアップ用、履歴保存用のフォルダを 3 つそれぞれ作ります**
+## 6. Google の My Drive の任意の場所に、メディア保存用、バックアップ用、履歴保存用のフォルダを 3 つそれぞれ作ります
 
-これら、それぞれの ID を GAS で使用するので控えておきます。
+これら、それぞれの ID をスクリプトに指定するので、控えておきます。
 
-**(7) (1) のスクリプトに、各 Key, ID を記述します**
+## 7. 1. のスクリプトに、各 Key、ID を記述します
 
 ```JavaScript
 // ID of the Target Google Spreadsheet (Book)
-const VAL_ID_TARGET_BOOK              = '{(5) の Google スプレッドシートの ID}';
+const VAL_ID_TARGET_BOOK              = '{5. の Google スプレッドシートの ID}';
 // ID of the Google Drive where the images will be placed
-const VAL_ID_GDRIVE_FOLDER_MEDIA      = '{(6) のメディア保存用の Google ドライブ上のフォルダの ID}';
+const VAL_ID_GDRIVE_FOLDER_MEDIA      = '{6. のメディア保存用の Google ドライブ上のフォルダの ID}';
 // ID of the Google Drive where backup files will be placed
-const VAL_ID_GDRIVE_FOLDER_BACKUP     = '{(6) のバックアップ用の Google ドライブ上のフォルダの ID}';
+const VAL_ID_GDRIVE_FOLDER_BACKUP     = '{6. のバックアップ用の Google ドライブ上のフォルダの ID}';
 // ID of the Google Drive where history files will be placed
-const VAL_ID_GDRIVE_FOLDER_HISTORY    = '{(6) の履歴保存用の Google ドライブ上のフォルダの ID}';
+const VAL_ID_GDRIVE_FOLDER_HISTORY    = '{6. の履歴保存用の Google ドライブ上のフォルダの ID}';
 // Key and Secret to access Twitter APIs
-const VAL_CONSUMER_API_KEY            = '{(3) の Twitter Developer Portal で取得した API Key}';
-const VAL_CONSUMER_API_SECRET         = '{(3) の Twitter Developer Portal で取得した API Secret Key}';
+const VAL_CONSUMER_API_KEY            = '{3. の Twitter Developer Portal で取得した API Key}';
+const VAL_CONSUMER_API_SECRET         = '{3. の Twitter Developer Portal で取得した API Secret Key}';
 ```
 
-**(8) (1) のスクリプトの getOAuthURL() を実行します**
+## 8. 1. のスクリプトの getOAuthURL() を実行します
 
 セキュリティー関連の警告ダイアログが出ますので、許可します。
 
-**(9) ログに吐き出された URL をブラウザで開き、Twitter との連携を許可します**
+## 9. ログに吐き出された URL をブラウザで開き、Twitter との連携を許可します
 
 以上で Twitter API を呼ぶ準備が整います。
 
-**(10) main() 関数を定期的に実行するようにスケジュールする**
+## 10. main() 関数を定期的に実行するようにスケジュールする
 
-**main()** 関数を呼ぶことにより、(5) のスプレッドシートに、キーワードで指定したツイートの検索結果が書き留められていきます。
+**main()** 関数を呼ぶことにより、5. のスプレッドシートに、キーワードで指定したツイートの検索結果が書き留められていきます。
+また、**backup()** 関数はバックアップ処理を行う関数なので、これもスケジュールして、週いち程度で呼ぶように設定します。
