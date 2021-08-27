@@ -8,6 +8,8 @@
 
 Developer Account の取得、アプリの登録、OAUth1 ライブラリの組み込み等の詳細な手順は Qiita の下記の記事が参考になるかと思います。
 
+これらの記事、特に 1 つ目と 2 つ目の記事をお読みいただき、全体の流れを掴んだ後、手順にしたがって設定していただくとスムーズです。
+
 * [Twitter API と GAS を用いた情報収集 - 1. Twitter Developer Account 編](https://qiita.com/anti-digital/items/5f085d8d7361785f7def)
 * [Twitter API と GAS を用いた情報収集 - 2. GAS+OAuth 編](https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38)
 * [Twitter API と GAS を用いた情報収集 - 3. Google スプレッドシートとの連携 編](https://qiita.com/anti-digital/items/f7d6de42974066ad1f25)
@@ -32,6 +34,8 @@ https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
 
 2.(d) "Add" ボタンを押して追加します
 
+<img alt="OAuth1 ライブラリの追加" width=400 src="https://camo.qiitausercontent.com/e05cf9534b3a3e8eda2a60e64f979c3990d7fd36/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f313835393935362f31656635636132642d663165612d643066652d366333342d3637343964633233323064312e706e67">
+
 より詳細な手順は、Qiita の記事 : [Twitter API と GAS を用いた情報収集 - 2. GAS+OAuth 編](https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38) または、[OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) の "Set up" を参照してください。
 
 ## 3. Twitter Developer Account を取得し、アプリを登録し、App Key と Secret 値を入手します
@@ -39,7 +43,9 @@ https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
 [Twitter Developer Platform](https://developer.twitter.com/en/apply-for-access) から Twitter Developer Account を取得した後、
 [Twitter Developer Portal](https://developer.twitter.com/en/portal) でアプリを登録し、App Key と Secret 値を入手します。
 
-## 4. 1. のスクリプトのコールバックを 3. で登録したアプリの Callback URLs として登録します**
+<img alt="Twitter Developer Portal でのアプリの登録とKeyの生成" width=400 src="https://camo.qiitausercontent.com/487cc2c3bb7f8629542b9a4d563f6debb204ba67/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f313835393935362f62343239393261622d396439632d393637642d303864332d6539646236343934383930372e706e67">
+
+## 4. 1. のスクリプトのコールバックを 3. で登録したアプリの Callback URLs として登録します
 
 スクリプトのコールバックは、スクリプトの ID から、次のように決まります。
 
@@ -80,4 +86,5 @@ const VAL_CONSUMER_API_SECRET         = '{3. の Twitter Developer Portal で取
 ## 10. main() 関数を定期的に実行するようにスケジュールする
 
 **main()** 関数を呼ぶことにより、5. のスプレッドシートに、キーワードで指定したツイートの検索結果が書き留められていきます。
+
 また、**backup()** 関数はバックアップ処理を行う関数なので、これもスケジュールして、週いち程度で呼ぶように設定します。
