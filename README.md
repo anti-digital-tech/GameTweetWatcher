@@ -20,6 +20,20 @@ https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
 
 **(2) 上記スクリプトの [OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) を追加します**
 
+具体的な手順は、次のようになります。
+
+(2-1) スクリプトエディタ上で、左側にある "Libraries" の横にある "+" を押します
+
+(2-2) "Add a Library" ダイアログが表示されるので、そこの Script ID に 次の ID を入力します
+
+`1CXDCY5sqT9ph64fFwSzVtXnbjpSfWdRymafDrtIZ7Z_hwysTY7IIhi7s`
+
+(2-3) "Look up" します
+
+(2-4) "Add" ボタンを押して追加します
+
+より詳細な手順は、Qiita の記事 : [Twitter API と GAS を用いた情報収集 - 2. GAS+OAuth 編](https://qiita.com/anti-digital/items/acbd70b3ecedc6ff0b38) または、[OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) の "Set up" を参照してください。
+
 **(3) Twitter Developer Account を取得し、アプリを登録し、App Key と Secret 値を入手します**
 
 [Twitter Developer Platform](https://developer.twitter.com/en/apply-for-access) から Twitter Developer Account を取得した後、
