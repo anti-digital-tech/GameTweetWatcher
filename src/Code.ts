@@ -6,7 +6,7 @@
 //  Search Tweet based on a keyword which is specified in each Google Spreadsheet, and store the results into
 //  the each sheet.
 //
-// Author:  anti-digital
+// Author:  Mune
 //
 // History:
 //  2021-02-18 : Supported storing history data
@@ -29,16 +29,16 @@
 import { stat } from "fs";
 
 // ID of the Target Google Spreadsheet (Book)
-const VAL_ID_TARGET_BOOK              = '{ID of Target Google Spreadsheet}';
+const VAL_ID_TARGET_BOOK              = '18PpIEIWru0_z46FkWRt9Ac3-IEGcEhqh8BWTEC5U6i4';
 // ID of the Google Drive where the images will be placed
-const VAL_ID_GDRIVE_FOLDER_MEDIA      = '{ID of Google Drive Folder to place media files}';
+const VAL_ID_GDRIVE_FOLDER_MEDIA      = '1ttFnVjcZJNJdloaT4ni99ZbEYuEj-WAA';
 // ID of the Google Drive where backup files will be placed
-const VAL_ID_GDRIVE_FOLDER_BACKUP     = '{ID of Google Drive Folder to place backup files}';
+const VAL_ID_GDRIVE_FOLDER_BACKUP     = '1BVPS0fXT0UzkvuIe0gDESkhHApcyxZsR';
 // ID of the Google Drive where history files will be placed
-const VAL_ID_GDRIVE_FOLDER_HISTORY    = '{ID of Google Drive Folder to place history files}';
+const VAL_ID_GDRIVE_FOLDER_HISTORY    = '18quvxDih5xm59htcaPRtuzeDAu5fPmt0';
 // Key and Secret to access Twitter APIs
-const VAL_CONSUMER_API_KEY            = '{Consumer Key got from Twitter Developer Dashboard}';
-const VAL_CONSUMER_API_SECRET         = '{Consumer Secret value got from Twitter Developer Dashboard}';
+const VAL_CONSUMER_API_KEY            = 'lyhQXM3aZP5HHLqO6jjcEwzux';
+const VAL_CONSUMER_API_SECRET         = 'ODBAEfj4VlgVf1BKHJyoz6QwryiaNtcchkr4PikzjSHmct0hjr';
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // DEFINES
