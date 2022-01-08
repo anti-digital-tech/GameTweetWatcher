@@ -18,7 +18,9 @@ Developer Account の取得、アプリの登録、OAUth1 ライブラリの組�
 
 https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src.gs/Code.gs
 
-([clasp](https://github.com/google/clasp) を使う場合には、[TypeScript 版](https://github.com/anti-digital-tech/GameTweetWatcher/blob/master/src/Code.ts) を使用するのが良いと思います)
+プロジェクト自体は [clasp](https://github.com/google/clasp) で開発しています。
+ブラウザの GAS エディタを使わず clasp + TypeScript を使う場合には、普通に git clone してお使いください。
+その場合 src.gs フォルダ以下は不要です。
 
 ## 2. 上記スクリプトの [OAuth1 ライブラリ](https://github.com/googleworkspace/apps-script-oauth1) を追加します
 
